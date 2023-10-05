@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sales Data Analysis</title>
+</head>
+<body>
+    <h1>Sales Data Analysis</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".csv" required>
+        <button type="submit">Upload CSV</button>
+    </form>
+
+    {% if result %}
+    <h2>Calculated Metrics:</h2>
+    <p>Total Revenue: ${{ result['total_revenue'] }}</p>
+    <p>Average Price per Item: ${{ result['average_price'] }}</p>
+    <p>Best-Selling Item: {{ result['best_selling_item'] }}</p>
+
+    <h2>Sales Trend Over Time:</h2>
+    <img src="{sales_trend_chart}" alt="Sales Trend Chart">
+    {% endif %}
+</body>
+</html>
+
